@@ -7,12 +7,13 @@ class DraftItemCreater:
   def create_draft_item(self, access_token, BASE_URL, data):
     headers = {
       'Authorization': 'Bearer ' + access_token,
+      "Content-Language": "en-US",
       'Content-Type': 'application/json'
     }
   
 
     response = requests.post(
-      f'{BASE_URL}/sell/inventory/v1//bulk_create_or_replace_inventory_item',
+      f'{BASE_URL}/sell/inventory/v1/bulk_create_or_replace_inventory_item',
       headers=headers,
       data=data)
     if response.status_code == 201:
